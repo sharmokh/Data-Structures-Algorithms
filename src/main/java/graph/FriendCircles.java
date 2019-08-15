@@ -1,4 +1,4 @@
-package main.java.problems;
+package main.java.graph;
 
 
 import java.util.LinkedList;
@@ -34,20 +34,33 @@ import java.util.Queue;
 
 public class FriendCircles {
 
+    // Breadth First Search Approach
+    // - loop through each person and increase the number of friend circles if not visited
+    // - then visit each of his/her friends and friends' friends and mark as visited
+    // O(n) Time Complexity
+    // O(1) Space Complexity
     public int BFSCount(int[][] M) {
+
 
         Queue<Integer> queue = new LinkedList<>();
         int circles = 0;
 
+        // loop through each person
         for (int i = 0; i < M.length; i++) {
+
+            // 1 represents not visited, 2 represents visited
+            // increase circles count if person has not been visited
             if (M[i][i] == 1) {
 
                 circles++;
                 queue.add(i);
 
+                // breadth first search for friends within his/her circle
                 while (!queue.isEmpty()) {
                     int k = queue.poll();
                     for (int j = 0; j < M[i].length; j++) {
+                        // 1 represents part of the circle in M[k][j]
+                        // 1 represents not visited in M[j][j]
                         if (M[k][j] == 1 && M[j][j] == 1) {
                             queue.add(j);
                             M[j][j] = 2;
@@ -60,11 +73,21 @@ public class FriendCircles {
         return circles;
     }
 
+    // Depth First Search Approach
+    // - loop through each person and increase the number of friend circles if not visited
+    // - then visit each of his/her friends and friends' friends and mark as visited
+    // O(n) Time Complexity
+    // O(1) Space Complexity
     public int DFSCount(int[][] M) {
 
         int circles = 0;
 
+        // loop through each person
         for (int i = 0; i < M.length; i++) {
+
+            // 1 represents not visited, 2 represents visited
+            // increase circles count if person has not been visited
+            // depth first search of each friend and friends' friends
             if (M[i][i] == 1) {
                 circles++;
                 DFS(M, i);
@@ -76,7 +99,11 @@ public class FriendCircles {
 
     private void DFS(int[][] M, int f) {
 
+        // loop through each person's friends
         for (int j = 0; j < M[f].length; j++) {
+
+            // 1 represents part of the circle in M[k][j]
+            // 1 represents not visited in M[j][j]
             if (M[f][j] == 1 && M[j][j] == 1) {
                 M[j][j] = 2;
                 DFS(M,j);
