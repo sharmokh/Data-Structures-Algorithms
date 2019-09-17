@@ -1,6 +1,6 @@
 package test.java.problems;
 
-import main.java.problems.*;
+import main.java.arrays.ZeroOneMatrix;
 
 import java.util.Random;
 

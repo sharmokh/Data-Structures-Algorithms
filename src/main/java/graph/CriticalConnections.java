@@ -12,10 +12,10 @@ import java.util.List;
 //    server directly or indirectly through the network.  A critical connection is a connection that, if removed, will
 //    make some server unable to reach some other server.  Return all critical connections in the network in any order.
 //
-//        Example 1:
-//        Input: n = 4, connections = [[0,1],[1,2],[2,0],[1,3]]
-//        Output: [[1,3]]
-//        Explanation: [[3,1]] is also accepted.
+//    Example 1:
+//    Input: n = 4, connections = [[0,1],[1,2],[2,0],[1,3]]
+//    Output: [[1,3]]
+//    Explanation: [[3,1]] is also accepted.
 
 public class CriticalConnections {
 
