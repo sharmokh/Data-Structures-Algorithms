@@ -39,7 +39,7 @@ import java.util.Queue;
 //        1   2
 //    Return false.
 
-public class Subtree {
+public class SubtreeOfAnotherTree {
 
     // Recursive Method
     // - true: if s and t values equal (or both are null)
@@ -48,7 +48,7 @@ public class Subtree {
     //          recursively call on left and right subtree to check if match
     // O(m*n) Time Complexity
     // O(m) Space Complexity
-    public boolean recursiveMethod(TreeNode s, TreeNode t) {
+    public static boolean recursiveMethod(TreeNode s, TreeNode t) {
         if (s == null && t == null) {
             return true;
         }
@@ -65,7 +65,7 @@ public class Subtree {
     // - true: if s and t values equal (or both are null)
     //         and if both left subtree are equal and if both right subtree are equal
     // - false: if s and t values are not equal (or only one is null)
-    private boolean checkSub(TreeNode s, TreeNode t) {
+    private static boolean checkSub(TreeNode s, TreeNode t) {
         if (s == null && t == null) {
             return true;
         }
@@ -79,7 +79,7 @@ public class Subtree {
     // - queue left and right nodes and compare values as they come out of the queue
     // O(m*n) Time Complexity
     // O(m+n) Space Complexity
-    public boolean queueMethod(TreeNode s, TreeNode t) {
+    public static boolean queueMethod(TreeNode s, TreeNode t) {
 
         Queue<TreeNode> q = new LinkedList<>();
         q.add(s);
@@ -102,7 +102,7 @@ public class Subtree {
     // - add and remove two values at a time and check if both values equal, then add their children
     // - false: if values don't equal or only one tree has either a left or right child
     // - true: if false is not triggered, all node values have been checked
-    private boolean checkQueue(TreeNode c, TreeNode t) {
+    private static boolean checkQueue(TreeNode c, TreeNode t) {
 
         Queue<TreeNode> q = new LinkedList<>();
         q.add(c); q.add(t);
@@ -137,7 +137,7 @@ public class Subtree {
     // - convert each tree to string and check if t is an index of s
     // O(m*n) Time Complexity
     // O(m) Space Complexity
-    public boolean isSubtree(TreeNode s, TreeNode t) {
+    public static boolean isSubtree(TreeNode s, TreeNode t) {
         String sTree = convertToString(s);
         String tTree = convertToString(t);
         return sTree.indexOf(tTree) != -1;
@@ -146,7 +146,7 @@ public class Subtree {
     // Utility Function for String Method
     // - recursive function to concatenate a string using preorder traversal
     // - append current value with symbol, then append left subtree or LN for null and right subtree or RN for null
-    private String convertToString(TreeNode current) {
+    private static String convertToString(TreeNode current) {
 
         // append symbol and value to string
         StringBuilder sb = new StringBuilder();
