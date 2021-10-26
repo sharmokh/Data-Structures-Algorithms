@@ -12,7 +12,7 @@ import java.util.Map;
 //    Conditions:
 //        - You will pick exactly 2 numbers.
 //        - You cannot pick the same element twice.
-//        - If you have muliple pairs, select the pair with the largest number.
+//        - If you have multiple pairs, select the pair with the largest number.
 //
 //    Example 1:
 //    Input: nums = [1, 10, 25, 35, 60], target = 90
@@ -32,10 +32,8 @@ public class SortCenter {
 
     public static void main(String[] args) {
 
-        SortCenter sc = new SortCenter();
-
         int[] nums = {20, 50, 40, 25, 30, 10};
-        System.out.println(Arrays.toString(sc.hashMapMethod(nums, 90)));
+        System.out.println(Arrays.toString(hashMapMethod(nums, 90)));
 
     }
 
@@ -46,7 +44,7 @@ public class SortCenter {
     // - add current value and index to map
     // O(n) Time Complexity
     // O(n) Space Complexity
-    public int[] hashMapMethod(int[] nums, int target) {
+    public static int[] hashMapMethod(int[] nums, int target) {
 
         // HashMap stores value as key and index as value Map<Value, Index>
         Map<Integer, Integer> map = new HashMap<>();
