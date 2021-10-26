@@ -48,7 +48,7 @@ public class NormalizeList {
         List<String> normalizeList = nl.normalizeList(list);
         normalizeList.forEach(System.out::println);
 
-        list = Arrays.asList(
+        List<String> additionalTests = Arrays.asList(
                 "&&&&",
                 "& Romeo",
                 "Juliet &",
@@ -56,8 +56,8 @@ public class NormalizeList {
                 "&",
                 ""
         );
-        nl.normalizeList(list).forEach(System.out::println);
-
+        nl.normalizeList(additionalTests)
+                .forEach(System.out::println);
     }
 
     public List<String> normalizeList(List<String> list) {
