@@ -1,6 +1,5 @@
 package main.java.strings;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -60,6 +59,13 @@ public class NormalizeList {
                 .forEach(System.out::println);
     }
 
+
+    /**
+     * Method normalizes a list of strings for "&" to "and".
+     *
+     * @param  list list of strings to normalize
+     * @return      list of normalized strings
+     */
     public List<String> normalizeList(List<String> list) {
         return list.parallelStream()
                 .map(s -> s.replaceAll("&", "and"))
